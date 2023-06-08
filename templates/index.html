@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Plot Generator</h1>
+    <form action="/plotBar/{{ col_name }}" method="get">
+        <label for="col_name">Column Name:</label>
+        <input type="text" id="col_name" name="col_name">
+        <input type="submit" value="Generate Bar Plot">
+    </form>
+    
+    <form action="/plotHist/{{ col_name }}" method="get">
+        <label for="col_name">Column Name:</label>
+        <input type="text" id="col_name" name="col_name">
+        <input type="submit" value="Generate Histogram">
+    </form>
+    
+    <form action="/plotScatter/{{ col_name1 }}/{{ col_name2 }}" method="get">
+        <label for="col_name1">Column Name 1:</label>
+        <input type="text" id="col_name1" name="col_name1">
+        <label for="col_name2">Column Name 2:</label>
+        <input type="text" id="col_name2" name="col_name2">
+        <input type="submit" value="Generate Scatter Plot">
+    </form>
+    
+    <form action="/plotBox/{{ col_name1 }}/{{ col_name2 }}" method="get">
+        <label for="col_name1">Column Name 1:</label>
+        <input type="text" id="col_name1" name="col_name1">
+        <label for="col_name2">Column Name 2:</label>
+        <input type="text" id="col_name2" name="col_name2">
+        <input type="submit" value="Generate Box Plot">
+    </form>
+    
+    {% if plot_file %}
+        <img src="{{ url_for('static', filename=plot_file) }}" alt="Plot">
+    {% endif %}
+</body>
+</html>
+
+
+    
+
