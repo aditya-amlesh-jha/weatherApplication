@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- take input of col_name for bar plot -->
+    <form action="/bar" method="post">
+        <label for="col_name">Column Name:</label>
+        <input type="text" id="col_name" name="col_name">
+        <input type="submit" value="Generate Bar Plot">
+    </form>
+    {% if plot_file %}
+    <img src="{{url_for('static',filename=plot_file)}}" alt="BarPlot">
+    {% endif %}
+</body>
+</html>
